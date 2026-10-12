@@ -1,0 +1,13 @@
+{
+  "name": "rust-in-js",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "A small Rust interpreter in JavaScript. Fearless concurrency, single-threaded.",
+  "license": "MIT",
+  "scripts": {
+    "start": "node server.mjs",
+    "test": "node --test tests/*.test.js"
+  },
+  "engines": { "node": ">=20" }
+}

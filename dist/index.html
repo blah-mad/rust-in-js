@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Write a tiny subset of Rust. Run it in JavaScript. Experience the borrow checker at the least convenient time.">
+  <meta name="theme-color" content="#eeeefa">
+  <title>Rust.js · Fearless concurrency. Single-threaded.</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="page">
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="Rust.js home"><span class="brand-mark" aria-hidden="true">R<span>js</span></span><span>rust<span class="brand-dot">.</span>js</span><span class="version">v0.1</span></a>
+      <nav aria-label="Project"><button id="guide-button" class="text-button">Language guide</button><a class="github-link" href="https://github.com/blah-mad/rust-in-js" target="_blank" rel="noreferrer"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.86c-2.78.6-3.37-1.18-3.37-1.18-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.64-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.76c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg><span>Source on GitHub</span></a></nav>
+    </header>
+
+    <section class="intro" aria-labelledby="title">
+      <div><p class="intro-kicker"><span class="status-dot"></span> A questionable language experiment</p><h1 id="title">Rust. Now with more JavaScript.</h1><p class="intro-copy">All the compiler complaints. None of the performance.<br>Write Rust, run JavaScript, question everything.</p></div>
+      <div class="concurrency-stamp" aria-label="Fearless concurrency. Single-threaded."><svg aria-hidden="true" viewBox="0 0 52 44"><path d="M12 20 5 13M8 26 2 26M12 31 5 38M40 20l7-7M44 26h6M40 31l7 7M15 18l-4-7 3-7 6 5M37 18l4-7-3-7-6 5"/><rect x="12" y="17" width="28" height="22" rx="10"/><path d="M21 25v2M31 25v2M22 33h8"/></svg><strong>Fearless concurrency.</strong><span>Single-threaded.</span></div>
+    </section>
+
+    <main class="playground" aria-label="Rust.js playground">
+      <div class="workspace-toolbar"><div class="workspace-title"><span class="workspace-icon" aria-hidden="true">&lt;/&gt;</span><h2>Playground</h2><span class="browser-badge">Runs in your browser</span></div><div class="run-controls"><label class="unsafe-label" title="Bypass runtime ownership and borrow checks"><input id="unsafe" type="checkbox"><span class="switch" aria-hidden="true"></span><span>Unsafe mode</span></label><button id="run" class="run-button"><svg aria-hidden="true" viewBox="0 0 16 16"><path d="m5 3 8 5-8 5Z"/></svg><span>Run code</span><kbd aria-hidden="true">⌘ ↵</kbd></button></div></div>
+      <div id="unsafe-banner" class="unsafe-banner" hidden>Ownership checks are off. Mutation rules and execution limits still apply. Confidence is a personal choice.</div>
+      <div class="workspace-body">
+        <aside class="examples-panel" aria-label="Example programs"><div class="examples-heading">Try an example</div><div id="examples" class="examples-list"></div><div class="sidebar-note"><span aria-hidden="true">&amp;mut</span><p>The borrow checker arrives at runtime.<br>Fashionably late.</p></div></aside>
+        <div class="code-panel"><div class="file-bar"><span><span class="file-dot" aria-hidden="true"></span>main.rs</span><div><button id="reset" class="small-button" title="Restore the selected example">Reset</button><button id="copy" class="small-button">Copy code</button></div></div><div class="editor-shell"><div id="line-numbers" class="line-numbers" aria-hidden="true"></div><div class="editor-content"><pre id="highlight" aria-hidden="true"></pre><textarea id="code" aria-label="Rust source code" maxlength="40000" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off"></textarea></div></div><div class="editor-status"><span id="example-description">The traditional first questionable decision.</span><span id="cursor-position">Ln 1, Col 1</span></div></div>
+      </div>
+      <div class="results"><section class="console-panel" aria-label="Program output"><div class="output-bar"><div><h3>Output</h3><span id="run-status" class="run-status">Ready when you are</span></div><button id="clear" class="small-button">Clear</button></div><div id="output" class="output" role="log" aria-live="polite"><p class="output-placeholder"><span aria-hidden="true">$</span> Your next questionable decision goes here.<br><span class="output-hint">Run the code or press <kbd>⌘ / Ctrl + Enter</kbd>.</span></p></div></section><section class="runtime-panel" aria-label="Runtime information"><h3>Under the hood</h3><dl><div><dt>Actually running</dt><dd>JavaScript</dd></div><div><dt>Borrow checker</dt><dd id="checker-state">Fashionably late</dd></div><div><dt>Execution steps</dt><dd id="steps">—</dd></div><div><dt>Native performance</dt><dd class="deadpan">Spiritually</dd></div></dl><p id="runtime-note">A real interpreter. A very small subset of Rust.</p></section></div>
+    </main>
+
+    <footer><p>Built with JavaScript. Rust has not approved this message.</p><button id="limits-button" class="text-button">What actually works?</button></footer>
+  </div>
+  <dialog id="guide" aria-labelledby="guide-title"><div class="dialog-heading"><h2 id="guide-title">A little Rust. A lot of audacity.</h2><button id="close-guide" class="close-button" aria-label="Close language guide">×</button></div><p>This is a JavaScript interpreter for a small Rust-like language. Your code runs locally in a dedicated browser worker.</p><h3>What works</h3><ul><li><code>fn</code>, <code>let</code>, <code>mut</code>, numbers, booleans, strings and arithmetic.</li><li><code>println!</code>, <code>String::from</code>, <code>.clone()</code> and common string methods.</li><li><code>if / else</code>, bounded loops, functions and structs.</li><li><code>Some / None</code>, <code>Ok / Err</code> and <code>match</code>.</li><li>Moves and shared or mutable references, checked at runtime.</li></ul><h3>The fine print</h3><p>Borrow lifetimes follow lexical scopes. Type annotations are accepted but this is not a Rust type checker. No crates, traits, lifetimes, async, threads or native compilation. Execution has step, output and time limits.</p><p>Unsafe mode bypasses ownership and borrow checks. It does not provide Rust's <code>unsafe</code> semantics or actual unsafe memory access.</p><a href="https://github.com/blah-mad/rust-in-js#readme" target="_blank" rel="noreferrer">Read the full language guide on GitHub</a></dialog>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
